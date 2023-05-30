@@ -19,23 +19,35 @@ console.log("JSOK");
 // I take the elements from the DOM
 
 const fizzBuzz = document.getElementById("fizz-buzz");
-
+let listElement = "";
 // Counter
 
 for (let i = 1; i <= 100; i++) {
   let elementPrint = "";
+  let box = "box";
+  let element = "";
 
   //   if the number is divisible by 3 I add fizz
 
-  if (!(i % 3)) elementPrint += "Fizz";
-
+  if (!(i % 3)) {
+    elementPrint += "Fizz";
+    box += " fizz";
+  }
   //   if the number is divisible by 5 I add buzz
 
-  if (!(i % 5)) elementPrint += "Buzz";
-
+  if (!(i % 5)) {
+    elementPrint += "Buzz";
+    box += " buzz";
+  }
   // if it is not divisible by 3 or 5 we print the number
 
   if (!elementPrint) elementPrint = i;
 
   console.log(elementPrint);
+
+  element = `<div class="${box}">${elementPrint}</div>`;
+
+  listElement += element;
 }
+
+fizzBuzz.innerHTML = listElement;
